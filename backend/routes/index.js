@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import mongoose from 'mongoose';
+import authRoutes from './authRoutes.js';
 
 const router = Router();
 
@@ -14,5 +15,7 @@ router.get('/health', (_req, res) => {
         timestamp: new Date().toISOString(),
     });
 });
+
+router.use('/auth', authRoutes);
 
 export default router;
